@@ -16,7 +16,7 @@ class Solution:
         return 0
     
     # def reverse(self, x):
-    #     x, y, s = abs(x), 0, int(x < 1)
+    #     x, y, s = abs(x), 0, int(x < 0)
     #     while x:
     #         x, y = x // 10, y * 10 + x % 10
     #     y *= (-1) ** s
