@@ -1,8 +1,15 @@
+#
+# @lc app=leetcode.cn id=234 lang=python3
+#
+# [234] 回文链表
+#
+
+# @lc code=start
 # Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
 class Solution:
     def isPalindrome(self, head: ListNode) -> bool:
@@ -25,9 +32,5 @@ class Solution:
             head1, head2 = head1.next, head2.next
         return head1 is None and head2 is None
 
+# @lc code=end
 
-s = Solution()
-
-node0 = ListNode(0)
-node0.next = ListNode(0)
-print(s.isPalindrome(node0))
