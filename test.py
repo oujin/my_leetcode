@@ -1,33 +1,19 @@
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
 class Solution:
-    def isPalindrome(self, head: ListNode) -> bool:
-        if head is None or head.next is None:
-            return True
-        slow, fast = head.next, head.next.next
-        head.next = None
-        head1, head2 = head, slow
-        while fast and fast.next:
-            head2 = slow.next
-            slow.next = head1
-            head1 = slow
-            slow = head2
-            fast = fast.next.next
-        if fast is not None:
-            head2 = head2.next
-        while head1 and head2:
-            if head1.val != head2.val:
-                return False
-            head1, head2 = head1.next, head2.next
-        return head1 is None and head2 is None
+    def findDisappearedNumbers(self, nums):
+        i = 1
+        while i <= len(nums):
+            n = nums[i-1]
+            if nums[i-1] == i or nums[n-1] == nums[i-1]:
+                i += 1
+            else:
+                nums[i-1], nums[n-1] = nums[n-1], nums[i-1]
+        ans = []
+        for i, n in enumerate(nums, 1):
+            if i != n:
+                ans.append(i)
+        return ans
 
 
 s = Solution()
 
-node0 = ListNode(0)
-node0.next = ListNode(0)
-print(s.isPalindrome(node0))
+s.findDisappearedNumbers([4,3,2,7,8,2,3,1])
